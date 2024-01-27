@@ -94,7 +94,7 @@ function MediumProduct({ product, showReview, imageRatio, direction }: Props) {
         <Txt fontSize={"17px"}>{`${discountRate}%`}</Txt>
         <Txt fontSize={"17px"}>{`${price.toLocaleString()}원`}</Txt>
       </Flex>
-      <Txt fontSize={"15px"} ellipsisAfterLines={1}>
+      <Txt fontSize={"15px"} ellipsisAfterLines={2}>
         {productName}
       </Txt>
       {showReview === true && <StarRating rating={reviewRating} />}

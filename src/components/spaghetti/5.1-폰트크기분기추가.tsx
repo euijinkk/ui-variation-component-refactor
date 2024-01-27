@@ -75,7 +75,7 @@ function Product({
       </Flex>
       <Txt
         fontSize={size === "medium" ? "15px" : "13px"}
-        ellipsisAfterLines={1}
+        ellipsisAfterLines={size === "medium" ? "2" : "1"}
       >
         {productName}
       </Txt>
