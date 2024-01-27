@@ -25,12 +25,12 @@ function SmallProduct({ product, showReview, imageRatio, direction }: Props) {
     reviewRating,
   } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
-  const showViewCount = viewCount >= minViewCountToShow;
+  const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
   const imageUrl = imageRatio === "1 / 1" ? imageUrl1X1 : imageUrl5X2;
   return (
     <Flex direction={direction}>
       <Position type="relative">
-        <Img aspectRatio={imageRatio} src={imageUrl} />
+        <Img src={imageUrl} />
         <Position
           type="absoulte"
           right={direction === "column" ? 12 : 8}
@@ -57,13 +57,13 @@ function SmallProduct({ product, showReview, imageRatio, direction }: Props) {
 function MediumProduct({ product, showReview, imageRatio, direction }: Props) {
   const { imageUrl1X1, originPrice, price, productName, viewCount } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
-  const showViewCount = viewCount >= minViewCountToShow;
+  const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
   const imageUrl = imageRatio === "1 / 1" ? imageUrl1X1 : imageUrl5X2;
 
   return (
     <Flex direction={direction}>
       <Position type="relative">
-        <Img aspectRatio={imageRatio} src={imageUrl} />
+        <Img src={imageUrl} />
         <Position
           type="absoulte"
           right={direction === "column" ? 12 : 8}

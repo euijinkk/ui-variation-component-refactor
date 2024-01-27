@@ -11,7 +11,7 @@ interface Props {
 function Product({ product }: Props) {
   const { imageUrl1X1, originPrice, price, productName, viewCount } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
-  const showViewCount = viewCount >= minViewCountToShow;
+  const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
 
   return (
     <Flex direction="column">

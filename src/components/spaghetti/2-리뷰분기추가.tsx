@@ -20,7 +20,7 @@ function Product({ product, showReview }: Props) {
     reviewRating,
   } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
-  const showViewCount = viewCount >= minViewCountToShow;
+  const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
 
   return (
     <Flex direction="column">

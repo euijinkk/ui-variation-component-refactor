@@ -23,13 +23,13 @@ function Product({ product, showReview, imageRatio, direction }: Props) {
     imageUrl5X2,
   } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
-  const showViewCount = viewCount >= minViewCountToShow;
+  const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
   const imageUrl = imageRatio === "1 / 1" ? imageUrl1X1 : imageUrl5X2;
 
   return (
     <Flex direction="direction">
       <Position type="relative">
-        <Img aspectRatio={imageRatio} src={imageUrl} />
+        <Img src={imageUrl} />
         <Position type="absoulte" right={12} bottom={12}>
           <WishButton />
         </Position>
