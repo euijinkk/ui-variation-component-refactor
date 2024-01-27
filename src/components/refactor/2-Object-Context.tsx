@@ -22,73 +22,64 @@ interface Props {
 
 function MediumColumnProduct({ product }: { product: ProductType }) {
   return (
-    <ProductContainer product={product}>
+    <Product product={product}>
       <Flex direction={"column"}>
         <Position type="relative">
-          <ProductContainer.Image imageRatio={"1 / 1"} />
+          <Product.Image imageRatio={"1 / 1"} />
           <Position type="absoulte" right={12} bottom={12}>
-            <ProductContainer.WishButton />
+            <Product.WishButton />
           </Position>
         </Position>
         <Flex direction="row">
-          <ProductContainer.DiscountRate fontSize={"medium"} />
-          <ProductContainer.Price fontSize={"medium"} />
+          <Product.DiscountRate fontSize={"medium"} />
+          <Product.Price fontSize={"medium"} />
         </Flex>
-        <ProductContainer.ProductName
-          fontSize={"medium"}
-          ellipsisAfterLines={2}
-        />
-        <ProductContainer.ViewCount fontSize={"medium"} />
+        <Product.ProductName fontSize={"medium"} ellipsisAfterLines={2} />
+        <Product.ViewCount fontSize={"medium"} />
       </Flex>
-    </ProductContainer>
+    </Product>
   );
 }
 
 function MediumRowProduct({ product }: { product: ProductType }) {
   return (
-    <ProductContainer product={product}>
+    <Product product={product}>
       <Flex direction={"row"}>
         <Position type="relative">
-          <ProductContainer.Image imageRatio={"1 / 1"} />
+          <Product.Image imageRatio={"1 / 1"} />
           <Position type="absoulte" right={8} bottom={8}>
-            <ProductContainer.WishButton />
+            <Product.WishButton />
           </Position>
         </Position>
         <Flex direction="row">
-          <ProductContainer.DiscountRate fontSize={"medium"} />
-          <ProductContainer.Price fontSize={"medium"} />
+          <Product.DiscountRate fontSize={"medium"} />
+          <Product.Price fontSize={"medium"} />
         </Flex>
-        <ProductContainer.ProductName
-          fontSize={"medium"}
-          ellipsisAfterLines={1}
-        />
-        <ProductContainer.ViewCount fontSize={"medium"} />
+        <Product.ProductName fontSize={"medium"} ellipsisAfterLines={1} />
+        <Product.ViewCount fontSize={"medium"} />
       </Flex>
-    </ProductContainer>
+    </Product>
   );
 }
 
 function SmallColumnProduct({ product }: { product: ProductType }) {
   return (
-    <ProductContainer product={product}>
+    <Product product={product}>
       <Flex direction={"column"}>
         <Position type="relative">
-          <ProductContainer.Image imageRatio={"1 / 1"} />
+          <Product.Image imageRatio={"1 / 1"} />
           <Position type="absoulte" right={12} bottom={12}>
-            <ProductContainer.WishButton />
+            <Product.WishButton />
           </Position>
         </Position>
         <Flex direction="row">
-          <ProductContainer.DiscountRate fontSize={"medium"} />
-          <ProductContainer.Price fontSize={"medium"} />
+          <Product.DiscountRate fontSize={"medium"} />
+          <Product.Price fontSize={"medium"} />
         </Flex>
-        <ProductContainer.ProductName
-          fontSize={"medium"}
-          ellipsisAfterLines={1}
-        />
-        <ProductContainer.ViewCount fontSize={"medium"} />
+        <Product.ProductName fontSize={"medium"} ellipsisAfterLines={1} />
+        <Product.ViewCount fontSize={"medium"} />
       </Flex>
-    </ProductContainer>
+    </Product>
   );
 }
 
@@ -97,7 +88,7 @@ function useProductConsumer() {
   return useContext(ProductContext);
 }
 
-function ProductContainer({
+function Product({
   children,
   product,
 }: PropsWithChildren<{ product: ProductType }>) {
@@ -107,13 +98,13 @@ function ProductContainer({
     </ProductContext.Provider>
   );
 }
-ProductContainer.Image = Image;
-ProductContainer.WishButton = WishButton;
-ProductContainer.DiscountRate = DiscountRate;
-ProductContainer.Price = Price;
-ProductContainer.ProductName = ProductName;
-ProductContainer.Review = Review;
-ProductContainer.ViewCount = ViewCount;
+Product.Image = Image;
+Product.WishButton = WishButton;
+Product.DiscountRate = DiscountRate;
+Product.Price = Price;
+Product.ProductName = ProductName;
+Product.Review = Review;
+Product.ViewCount = ViewCount;
 
 function Image({ imageRatio }: { imageRatio: "1 / 1" | "5 / 2" }) {
   const { imageUrl1X1, imageUrl5X2 } = useProductConsumer();
