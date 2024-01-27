@@ -71,7 +71,7 @@ function SmallColumnProduct() {
           <WishButton />
         </Position>
       </Position>
-      <Flex direction="row">
+      <Flex direction="column">
         <DiscountRate fontSize={"small"} />
         <Price fontSize={"small"} />
       </Flex>

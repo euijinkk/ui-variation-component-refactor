@@ -14,7 +14,7 @@ interface Props {
   imageRatio: "5 / 2" | "1 / 1";
 }
 
-function Product({ product, showReview, imageRatio, direction }: Props) {
+function Product({ product, showReview, imageRatio }: Props) {
   const {
     isWished,
     productId,

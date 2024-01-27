@@ -57,7 +57,7 @@ function SmallProduct({ product, showReview, imageRatio, direction }: Props) {
           )}
         </Position>
       </Position>
-      <Flex direction="row">
+      <Flex direction="column">
         <Txt fontSize={"14px"}>{`${discountRate}%`}</Txt>
         <Txt fontSize={"14px"}>{`${price.toLocaleString()}원`}</Txt>
       </Flex>

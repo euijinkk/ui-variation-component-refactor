@@ -13,7 +13,7 @@ interface Props {
   showReview: boolean;
   imageRatio: "5 / 2" | "1 / 1";
   direction: "column" | "row";
-  fontSize: "medium" | "small";
+  size: "medium" | "small";
 }
 
 function Product({
@@ -21,7 +21,7 @@ function Product({
   showReview,
   imageRatio,
   direction,
-  fontSize,
+  size,
 }: Props) {
   const {
     isWished,
@@ -67,14 +67,14 @@ function Product({
       </Position>
       <Flex direction="row">
         <Txt
-          fontSize={fontSize === "medium" ? "17px" : "14px"}
+          fontSize={size === "medium" ? "17px" : "14px"}
         >{`${discountRate}%`}</Txt>
         <Txt
-          fontSize={fontSize === "medium" ? "17px" : "14px"}
+          fontSize={size === "medium" ? "17px" : "14px"}
         >{`${price.toLocaleString()}원`}</Txt>
       </Flex>
       <Txt
-        fontSize={fontSize === "medium" ? "15px" : "13px"}
+        fontSize={size === "medium" ? "15px" : "13px"}
         ellipsisAfterLines={1}
       >
         {productName}
@@ -82,7 +82,7 @@ function Product({
       {showReview === true && <StarRating rating={reviewRating} />}
       {showViewCount === true
         <Txt
-          fontSize={fontSize === "medium" ? "14px" : "12px"}
+          fontSize={size === "medium" ? "14px" : "12px"}
         >{`${viewCount.toLocaleString()}명 구경함`}</Txt>
       }
     </Flex>

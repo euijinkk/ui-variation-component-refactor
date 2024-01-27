@@ -15,12 +15,7 @@ interface Props {
   direction: "column" | "row";
 }
 
-export default function Product({
-  product,
-  showReview,
-  imageRatio,
-  direction,
-}: Props) {
+function Product({ product, showReview, imageRatio, direction }: Props) {
   const {
     isWished,
     productId,

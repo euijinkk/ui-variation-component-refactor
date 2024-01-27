@@ -72,12 +72,12 @@ function SmallColumnProduct({ product }: { product: ProductType }) {
             <Product.WishButton />
           </Position>
         </Position>
-        <Flex direction="row">
-          <Product.DiscountRate fontSize={"medium"} />
-          <Product.Price fontSize={"medium"} />
+        <Flex direction="column">
+          <Product.DiscountRate fontSize={"small"} />
+          <Product.Price fontSize={"small"} />
         </Flex>
-        <Product.ProductName fontSize={"medium"} ellipsisAfterLines={1} />
-        <Product.ViewCount fontSize={"medium"} />
+        <Product.ProductName fontSize={"small"} ellipsisAfterLines={1} />
+        <Product.ViewCount fontSize={"small"} />
       </Flex>
     </Product>
   );
