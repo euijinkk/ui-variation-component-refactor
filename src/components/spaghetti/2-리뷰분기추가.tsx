@@ -6,6 +6,8 @@ interface Props {
     viewCount: number;
     imageUrl1X1: string;
     reviewRating: number;
+    isWished: boolean;
+    productId: number;
   };
   showReview: boolean;
 }
@@ -18,6 +20,8 @@ function Product({ product, showReview }: Props) {
     productName,
     viewCount,
     reviewRating,
+    isWished,
+    productId,
   } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
   const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
@@ -27,7 +31,21 @@ function Product({ product, showReview }: Props) {
       <Position type="relative">
         <Img aspectRatio="1 / 1" src={imageUrl1X1} />
         <Position type="absoulte" right={12} bottom={12}>
-          <WishButton />
+          {isWished ? (
+            <Icon
+              name="heart-red"
+              onClick={() => {
+                deleteWishList(productId);
+              }}
+            />
+          ) : (
+            <Icon
+              name="heart-blank"
+              onClick={() => {
+                addWishList(productId);
+              }}
+            />
+          )}
         </Position>
       </Position>
       <Flex direction="row">

@@ -1,5 +1,7 @@
 interface Props {
   product: {
+    isWished: boolean;
+    productId: number;
     originPrice: number;
     price: number;
     productName: string;
@@ -14,6 +16,8 @@ interface Props {
 
 function Product({ product, showReview, imageRatio, direction }: Props) {
   const {
+    isWished,
+    productId,
     imageUrl1X1,
     originPrice,
     price,
@@ -31,7 +35,21 @@ function Product({ product, showReview, imageRatio, direction }: Props) {
       <Position type="relative">
         <Img src={imageUrl} />
         <Position type="absoulte" right={12} bottom={12}>
-          <WishButton />
+          {isWished ? (
+            <Icon
+              name="heart-red"
+              onClick={() => {
+                deleteWishList(productId);
+              }}
+            />
+          ) : (
+            <Icon
+              name="heart-blank"
+              onClick={() => {
+                addWishList(productId);
+              }}
+            />
+          )}
         </Position>
       </Position>
       <Flex direction="row">

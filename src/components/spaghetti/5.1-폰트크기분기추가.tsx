@@ -1,5 +1,7 @@
 interface Props {
   product: {
+    isWished: boolean;
+    productId: number;
     originPrice: number;
     price: number;
     productName: string;
@@ -22,6 +24,8 @@ function Product({
   fontSize,
 }: Props) {
   const {
+    isWished,
+    productId,
     imageUrl1X1,
     originPrice,
     price,
@@ -44,7 +48,21 @@ function Product({
           right={direction === "column" ? 12 : 8}
           bottom={direction === "column" ? 12 : 8}
         >
-          <WishButton />
+          {isWished ? (
+            <Icon
+              name="heart-red"
+              onClick={() => {
+                deleteWishList(productId);
+              }}
+            />
+          ) : (
+            <Icon
+              name="heart-blank"
+              onClick={() => {
+                addWishList(productId);
+              }}
+            />
+          )}
         </Position>
       </Position>
       <Flex direction="row">
