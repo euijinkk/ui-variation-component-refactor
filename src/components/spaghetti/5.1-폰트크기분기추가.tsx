@@ -16,13 +16,7 @@ interface Props {
   size: "medium" | "small";
 }
 
-function Product({
-  product,
-  showReview,
-  imageRatio,
-  direction,
-  size,
-}: Props) {
+function Product({ product, showReview, imageRatio, direction, size }: Props) {
   const {
     isWished,
     productId,
@@ -36,13 +30,12 @@ function Product({
   } = product;
   const discountRate = calculateDiscountRate({ originPrice, price });
   const showViewCount = viewCount >= MIN_VIEW_COUNT_TO_SHOW;
-  const imageUrl =
-    imageRatio === "1 / 1" ? imageUrl1X1 : imageUrl5X2;
+  const imageUrl = imageRatio === "1 / 1" ? imageUrl1X1 : imageUrl5X2;
 
   return (
     <Flex direction={direction}>
       <Position type="relative">
-        <Img   src={imageUrl} />
+        <Img src={imageUrl} />
         <Position
           type="absoulte"
           right={direction === "column" ? 12 : 8}
@@ -80,11 +73,19 @@ function Product({
         {productName}
       </Txt>
       {showReview === true && <StarRating rating={reviewRating} />}
-      {showViewCount === true
+      {showViewCount === true && (
         <Txt
           fontSize={size === "medium" ? "14px" : "12px"}
         >{`${viewCount.toLocaleString()}명 구경함`}</Txt>
-      }
+      )}
     </Flex>
   );
 }
+
+Product.Image = Image;
+Product.WishButton = WishButton;
+Product.DiscountRate = DiscountRate;
+Product.Price = Price;
+Product.ProductName = ProductName;
+Product.Review = Review;
+Product.ViewCount = ViewCount;
